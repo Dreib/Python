@@ -1,0 +1,43 @@
+# This is a sample Python script.
+
+# Press Shift+F10 to execute it or replace it with your code.
+# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
+
+#def print_hi(name):
+    # Use a breakpoint in the code line below to debug your script.
+   # print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+
+
+# Press the green button in the gutter to run the script.
+#if __name__ == '__main__':
+#    print_hi('PyCharm')
+
+# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+class Shape:
+    def __init__(self, w, h):
+        self.width = w
+        self.height = h
+
+    def area(self):
+        return self.width * self.height
+
+    def __add__(self, other):
+        return Shape(self.width + other.width, self.height + other.height)
+
+    def __gt__(self, other):
+        return self.area() > other.area()
+
+
+w1 = int(input())
+h1 = int(input())
+w2 = int(input())
+h2 = int(input())
+
+s1 = Shape(w1, h1)
+s2 = Shape(w2, h2)
+result = s1 + s2
+
+print(result.area())
+print(s1 > s2)
