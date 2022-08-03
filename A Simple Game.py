@@ -72,26 +72,26 @@ while True:
     self._desc = value
 
 
-def hit(noun):
-  if noun in GameObject.objects:
-    thing = GameObject.objects[noun]
-    if type(thing) == Goblin:
-      thing.health = thing.health - 1
-      if thing.health <= 0:
-        msg = "You killed the goblin!"
-      else:
-        msg = "You hit the {}".format(thing.class_name)
-  else:
-    msg = "There is no {} here.".format(noun)
-  return msg
-
-  def examine(noun):
+  def hit(noun):
     if noun in GameObject.objects:
-      return GameObject.objects[noun].get_desc()
+      thing = GameObject.objects[noun]
+      if type(thing) == Goblin:
+        thing.health = thing.health - 1
+        if thing.health <= 0:
+          msg = "You killed the goblin!"
+        else:
+          msg = "You hit the {}".format(thing.class_name)
     else:
-      return "There is no {} here.".format(noun)
+      msg = "There is no {} here.".format(noun)
+    return msg
 
-  verb_dict = {
-    "say": say,
-    "examine": examine,
-  }
+    def examine(noun):
+      if noun in GameObject.objects:
+        return GameObject.objects[noun].get_desc()
+      else:
+        return "There is no {} here.".format(noun)
+
+    verb_dict = {
+      "say": say,
+      "examine": examine,
+    }
